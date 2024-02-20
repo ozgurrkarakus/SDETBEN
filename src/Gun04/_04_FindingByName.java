@@ -15,6 +15,11 @@ WebElement isimkutusu=driver.findElement(By.name("q8_name[first]"));
 isimkutusu.sendKeys("Özgür");
 WebElement soyadKutusu= driver.findElement(By.name("q8_name[last]"));
 soyadKutusu.sendKeys("Karakuş");
+
+WebElement butonTiklat= driver.findElement(By.id("input_2"));
+butonTiklat.click();
+
+
         MyFunc.Bekle(8);
 driver.quit();
 
