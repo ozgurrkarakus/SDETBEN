@@ -8,7 +8,7 @@ import java.time.Duration;
 public class BaseDriver {
     public static WebDriver driver;
 
-   static  {
+   static  {//Bunun şartı extend olması ve basta yer alması
         driver = new ChromeDriver();
         driver.manage().window().maximize();//Ekranı max yapıyor
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
@@ -18,7 +18,7 @@ public class BaseDriver {
     }
 
     public static void BekleKapat() {
-        MyFunc.Bekle(5);
+        MyFunc.Bekle(3);
 
         driver.quit();
     }

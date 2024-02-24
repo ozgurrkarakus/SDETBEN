@@ -20,7 +20,7 @@ WebElement butonTiklat= driver.findElement(By.id("input_2"));
 butonTiklat.click();
 
 
-        MyFunc.Bekle(8);
+        MyFunc.Bekle(5);
 driver.quit();
 
 
