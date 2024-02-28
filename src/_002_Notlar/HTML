@@ -1,0 +1,99 @@
+<html>
+<head>
+  <title>sayfa 1</title>
+  <!-- Sayfa Başlığıdır. Sayfada degil tarayıcının başlığında yazılır-->
+ <meta charset="UTF-8">
+ <!-- Sayfanın türkçeye uyumluluğu yapılır. -->
+</head>
+
+<body bgcolor="lightblue" text="white">
+<!-- bgcolor-> Background Color(Arka plan rengi), text->Yazı rengi -->
+<center>
+<!-- Center= Herşeyi ortalama(img ve inputlar dahil) -->
+<h1><font color="black">Kayıt Ekranı</font></h1>
+<!-- h1 içerisinde font tanımladığı için sadece h1
+içerisindeki yazı color="black"(renk=siyah) tanımlanır.-->
+<img src="https://www.w3schools.com/html/img_chrome.png" width="100"
+height="100" alt="FOTOGRAF">
+<!-- img içerisindeki src dizin içerisindeki resimleri (örnegin logo.png)veya
+resim linkinden resim çekilebilir.
+(ornegin="https://www.w3schools.com/html/img_chrome.png" ALT= Resim yoksa resimin
+yerine gelen yazıdır. -->
+
+<p><font color="red">Bir web tarayıcısının (Chrome, Edge, Firefox, Safari) amacı
+HTML belgelerini okumak ve bunları doğru şekilde görüntülemektir.</font>
+</p>
+<!-- P=paragraftır. HTML'de varsayılan yazıdır. p yazmasanızda <p> yazmış gibi
+ -->
+</center>
+
+<br>
+<!-- bir alt satıra geçme kodu= br -->
+<br>
+<hr>
+<form >
+<!-- form etiketinin arasındaki elemanların bilgileri form içerisindeki öğeleri
+bir grup olmasını sağlar. type=submit butonu sadece form içerisindeki öğelere
+geçerli olur yani çalışır -->
+  <label for="username"> username :</label>
+  <!-- label=etiket demektir. for yazıldığında ingilizceyle aynı anlamda olup
+  "için" anlamını taşır for="username"="username için" şeklindedir ve username diye
+  belirlediğimiz inputla bağlantı sağlar.Böylece "username:" yazısına tıklayınca sanki
+  input içerisine tıklamış gibi oluruz-->
+
+  <input id="username" type="text"
+  placeholder="Kullanıcı adınızı giriniz" required></input><br><br>
+   password : <input name="sifre" type="password" /><br><br>
+   Açıklama : <textarea rows="5" cols="25" placeholder="açıklama giriniz">
+   </textarea><br>
+
+<div style="color:blue; background-color: orange">
+<!-- "div" içindeki elemanları grupladık ve style kullanarak color:blue
+yazı rengi=mavi, background-color:orange arka plan= turuncu-->
+   Ehliyet ?: <input name="ehliyet" type="checkbox"
+   required><input name="ehliyet" type="checkbox" required><br>
+   <!-- type="checkbox" olunca name="ehliyet" eşit olsa bile yine radio gibi olmaz
+  type=radio'da name değeri aynı (örnegin name="cinsiyet) ise sadece 1 kutucuk
+  seçilebilir. -->
+   Cinsiyet : E<input type="radio" name="cinsiyet">
+              K<input type="radio" name="cinsiyet">
+              <!-- E ve K type=radio'da name değeri aynı olduğu için 1 kutucuk
+  seçilebilir. -->
+              X<input type="radio" name="X"> <br>
+              <!-- name değeri diğer radio tipli inputlardan farklı oldugu için
+              name="cinsiyet" olmadığından seçildiğinde diğer inputların seçilmesini
+              kaldırmaz-->
+   Eğitim Durumu:
+           <select>
+             <option>Seçiniz...</option>
+             <option>Üniversite</option>
+             <option>Lise</option>
+             <option>İlkokul</option>
+	      <option>İlkokul</option>
+             <option>İlkokul</option>
+             <option>İlkokul</option>
+             <option>İlkokul</option>
+
+           </select><br>
+           <!-- Select arasındaki yazılan option etiketi arasına yazılan her yazı
+           aşağı dogru açılır menüye eklenir. İçerisine input eklenmez font boyutu
+           büyütülmez (giydirme(css) harici) -->
+</div>
+<br>
+<input type="file" id="file-input">
+<br><br>
+<!-- dosya yükleme elemanı -->
+
+  <input type="submit" value="Gönderme"/><br>
+  <!-- Bilgileri gönderme butonu value ile Buton ismini değiştirebilirsiniz.
+  Eğer birşey yazmadan sadece type="submit" yaparsanız kullandıgınız tarayıcının(chrome,safari vb..) varsayılan
+  diline göre yazar. Türkçe ise= "Gönder" -->
+
+  <input type="button" value="Kaydet"/><br>
+  <!-- Normal butondur. -->
+
+   Bugün form <span style="color:red">elemanlarını</span> gördük
+</form>
+</body>
+
+</html>

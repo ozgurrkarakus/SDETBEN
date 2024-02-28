@@ -1,0 +1,44 @@
+Selenium XPath
+XPath, elementleri bulmak için kullanılan bir dizi kurallar
+XPath Derinlemesine Anlayış
+XPath, iki ana türde kullanılır: Mutlak XPath ve Göreli XPath. Her ikisinin de avantajları ve kullanım senaryoları vardır, ancak genellikle Göreli XPath, esnekliği ve sağlamlığı nedeniyle tercih edilir.
+
+Mutlak XPath
+
+Mutlak XPath, kök düğümden (/) başlayarak hedef elemente kadar tam yolu takip eder. Bu yöntem, yapının değişmemesi garantili olduğu durumlarda kullanışlı olabilir, ancak pratikte web sayfaları sık sık güncellendiği için bu tür XPath ifadeleri kolayca kırılabilir.
+
+Göreli XPath
+
+Göreli XPath, çift eğik çizgi (//) ile başlar ve belirli bir öznitelik, metin değeri veya element pozisyonu kullanarak herhangi bir yere göreli olarak elementi tanımlar. Bu yöntem, web sayfasının yapısındaki değişikliklere karşı daha dirençlidir.
+XPath'in Güçlü Özellikleri
+XPath, elementleri bulmak için çeşitli fonksiyonlar ve operatörler sunar:
+Metin İçeriğine Göre Seçim: //*[text()='Örnek Metin'] şeklindeki ifadeler, metin değerine göre element seçmemizi sağlar.
+Öznitelik Değerlerine Göre Seçim: //input[@type='submit'], type özniteliği submit olan tüm input elementlerini seçer.
+İşlevler ve Eşleşme Yöntemleri
+contains(): Bu işlev, bir öğenin içeriğinde belirli bir metni içeren öğeleri bulmak için kullanılır. Örneğin, bir web sayfasında kullanıcı adının içeriğinde "kullanıcı" kelimesini içeren bir öğeyi bulmak için şu XPath ifadesi kullanılabilir:
+bashCopy code//input[contains(@id, 'username')]
+starts-with(): Bu işlev, bir öğenin içeriğinin belirli bir metinle başlayıp başlamadığını kontrol etmek için kullanılır. Örneğin, bir web sayfasında bir bağlantının metni "Hesap" ile başlayan bir öğeyi bulmak için şu XPath ifadesi kullanılabilir:
+cssCopy code//a[starts-with(text(), 'Hesap')]
+ends-with(): Bu işlev, bir öğenin içeriğinin belirli bir metinle bittiğini kontrol etmek için kullanılır. Bu işlev XPath 3.0'da desteklenmez, ancak başka bir yaklaşımla benzer işlevsellik elde edilebilir. Örneğin, bir web sayfasında bir bağlantının metni "çıkış" ile biten bir öğeyi bulmak için şu XPath ifadesi kullanılabilir:
+vbnetCopy code//a[substring(text(), string-length(text()) - string-length('çıkış') +1) = 'çıkış']
+Bu işlevler, dinamik olarak oluşturulan ve değişen web sayfalarındaki belirli öğeleri doğru şekilde tanımlamak ve işlemek için önemli bir araç sağlar.
+Sıralama ve İndeksleme: Bir grup element içinden belirli bir sıradaki elemente erişmek için (//input[@name='example'])[3] gibi bir ifade kullanılır.
+Java Selenium ile XPath Kullanımı
+Java Selenium framework'ü, WebDriver aracılığıyla web sayfaları üzerinde otomasyon sağlar. XPath ifadeleri, By.xpath() metodu kullanılarak Selenium'a iletilir. Bu yöntem, belirtilen XPath ifadesine uyan web sayfasındaki element(ler)i bulur.
+// WebDriver'ı başlat
+WebDriver driver = new ChromeDriver();
+​
+// Web sayfasını aç
+driver.get("https://www.example.com");
+​
+// XPath kullanarak bir element bul
+WebElement button = driver.findElement(By.xpath("//button[@id='submit-button']"));
+​
+// Element üzerinde bir aksiyon gerçekleştir
+button.click();
+İleri Düzey XPath Örnekleri
+Birden Fazla Koşul: //input[@type='text' and @name='username'] ifadesi, hem type hem de name özniteliklerine sahip elementleri seçer.
+Üst Elementlere Erişim: Bir elementin üst elementine (//div[@class='container']//input)[1]/.. ile erişilebilir. Bu, özellikle belirli bir alt elemente göre üst elementi bulmak istediğinizde kullanışlıdır.
+Dinamik İçeriklerle Çalışmak: Web sayfasındaki içerik dinamik olarak değişiyorsa, contains() fonksiyonu ile esnek bir şekilde element bulunabilir: `//a[contains
+(text(),'Hoşgeldin')]`.
+​
