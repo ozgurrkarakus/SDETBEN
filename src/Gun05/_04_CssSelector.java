@@ -1,29 +1,32 @@
 package Gun05;
 
-import _001_Utilty.BaseDriver;
+import Utlity.BaseDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class _04_CssSelector extends BaseDriver {
     public static void main(String[] args) {
-driver.get("http://demo.seleniumeasy.com/basic-first-form-demo.html");
-        WebElement mesajKutusu= driver.findElement(By.cssSelector("input[id='user-message']"));
-mesajKutusu.sendKeys("Merhaba Selenium");
+        // Senaryo : (css selector kullanılarak yapılacak)
+        // https://demo.seleniumeasy.com/basic-first-form-demo.html sayfasına gidiniz.
+        // Kutucuğa "Merhaba Selenium" yazıp butona tıklatınız.
+        // Butonun altında çıkan mesaj , yazdığınız mesajla aynı ise "Test PASSED"
+        // değilse "Test Failed"  yazdırınız.
+        // div[id='user-message']  ,    By.cssSelector()
+        driver.get("http://demo.seleniumeasy.com/basic-first-form-demo.html");
 
-WebElement buton= driver.findElement(By.cssSelector("[onclick='showInput();']"));
-buton.click();
+        WebElement txtBox=driver.findElement(By.cssSelector("input[id='user-message']"));
+        txtBox.sendKeys("Merhaba Selenium");
 
-WebElement mesaj=driver.findElement(By.cssSelector("[id='display']"));
+        WebElement btn=driver.findElement(By.cssSelector("[onclick='showInput();']"));
+        btn.click();
 
-        if (mesaj.getText().contains("Merhaba Selenium"))
-            System.out.println("Test Passed");
-            else System.out.println("Test Failed");
+        WebElement msg=driver.findElement(By.cssSelector("[id='display']"));
 
+        if (msg.getText().contains("Merhaba Selenium"))
+            System.out.println("TEST PASSED");
+        else
+            System.out.println("TEST FAILED");
 
-
-    BekleKapat();
-
-
-
-}
+        BekleKapat();
+    }
 }

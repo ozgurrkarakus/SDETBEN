@@ -1,6 +1,6 @@
 package Gun04;
 
-import _001_Utilty.MyFunc;
+import Utlity.MyFunc;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,26 +8,25 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class _04_FindingByName {
     public static void main(String[] args) {
-        WebDriver driver = new ChromeDriver();
+       // By.Name()
+        // Senaryo: (locator olarak name kullanılacak)
+        // 1-  https://form.jotform.com/221934510376353  sayfasınız açınız
+        // 2-  isim kutucuğuna "ismet" yazdırınız
+        // 3-  soyad kutucuğuna "temur" yazdırınız
+
+        WebDriver driver= new ChromeDriver();
         driver.get("https://form.jotform.com/221934510376353");
 
-WebElement isimkutusu=driver.findElement(By.name("q8_name[first]"));
-isimkutusu.sendKeys("Özgür");
-WebElement soyadKutusu= driver.findElement(By.name("q8_name[last]"));
-soyadKutusu.sendKeys("Karakuş");
+        WebElement ad=driver.findElement(By.name("q8_name[first]"));
+        ad.sendKeys("İsmet");
 
-WebElement butonTiklat= driver.findElement(By.id("input_2"));
-butonTiklat.click();
+        WebElement soyad=driver.findElement(By.name("q8_name[last]"));
+        soyad.sendKeys("Temur");
 
+        WebElement btnSubmit=driver.findElement(By.id("input_2"));
+        btnSubmit.click();
 
         MyFunc.Bekle(5);
-driver.quit();
-
-
-
-
-
-
-
+        driver.quit();
     }
 }
