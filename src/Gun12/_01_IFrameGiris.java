@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 public class _01_IFrameGiris extends BaseDriver {
 
     @Test
-    public void Test1(){
+    public void Test1() {
         driver.get("https://chercher.tech/practice/frames");
         MyFunc.Bekle(2);
 
@@ -17,11 +17,11 @@ public class _01_IFrameGiris extends BaseDriver {
         //driver.switchTo().frame("frame1"); // id sine göre geçilebilir
         //driver.switchTo().frame("iamframe"); // name ine göre geçilebilir
 
-        WebElement weFrame1=driver.findElement(By.id("frame1")); // webElement olarak da geçilebilir
+        WebElement weFrame1 = driver.findElement(By.id("frame1"));
         driver.switchTo().frame(weFrame1);
         //index>webelement>name>id
 
-        WebElement txtBox=driver.findElement(By.cssSelector("[id='topic']+input"));
+        WebElement txtBox = driver.findElement(By.cssSelector("[id='topic']+input"));
         txtBox.sendKeys("Türkiye");
 
         driver.switchTo().defaultContent();  // otomatik olarak ana sayafa düşersin, en dışa
